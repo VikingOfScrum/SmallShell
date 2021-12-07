@@ -1,0 +1,86 @@
+﻿  Copying sources remotely to 'os1.engr.oregonstate.edu'
+  Build command not configured, skipping.
+  Invoking 'make', working directory: '/nfs/stak/users/hansjose/vsprojects/Assignment3'
+  gcc --std=gnu99 -g -Wall  -c -o build/main.o main.c
+  main.c: In function ‘main’:
+  main.c:143:4: warning: implicit declaration of function ‘sendCommands’ [-Wimplicit-function-declaration]
+      sendCommands(userArgs, &currStatus, argCount, isBackground, pidArray, &processCount, &SIGTSTP_act);
+      ^
+  main.c:148:3: warning: implicit declaration of function ‘resetInput’ [-Wimplicit-function-declaration]
+     resetInput(argCount, userCmd, userArgs);
+     ^
+  main.c:43:8: warning: unused variable ‘ptr’ [-Wunused-variable]
+    char* ptr;
+          ^
+  main.c:42:8: warning: unused variable ‘token’ [-Wunused-variable]
+    char* token;
+          ^
+  main.c: At top level:
+  main.c:167:6: warning: conflicting types for ‘resetInput’ [enabled by default]
+   void resetInput(int argCount, char* userCmd, char** userArgs) {
+        ^
+  main.c:148:3: note: previous implicit declaration of ‘resetInput’ was here
+     resetInput(argCount, userCmd, userArgs);
+     ^
+  main.c:184:6: warning: conflicting types for ‘sendCommands’ [enabled by default]
+   void sendCommands(char** userArgs, int* currStatus, int argCount, int isBackground, int** pidArray, int* processCount, struct sigaction* SIGTSTP_act) {
+        ^
+  main.c:143:4: note: previous implicit declaration of ‘sendCommands’ was here
+      sendCommands(userArgs, &currStatus, argCount, isBackground, pidArray, &processCount, &SIGTSTP_act);
+      ^
+  main.c: In function ‘sendCommands’:
+  main.c:248:10: warning: unused variable ‘childPid’ [-Wunused-variable]
+      pid_t childPid = waitpid(spawnpid, &childExitStatus, 0);
+            ^
+  main.c:261:10: warning: unused variable ‘childPid’ [-Wunused-variable]
+      pid_t childPid = waitpid(spawnpid, &childExitStatus, WNOHANG);
+            ^
+  main.c: In function ‘redirectOutput’:
+  main.c:282:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+    if (checkForRedirect = 1) {
+    ^
+  main.c:297:16: warning: comparison between pointer and integer [enabled by default]
+     if (userArgs > 1) {
+                  ^
+  main.c:305:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+    else if (checkForRedirect = 2) {
+    ^
+  main.c: In function ‘catchSIGTSTP’:
+  main.c:360:18: warning: initialization makes integer from pointer without a cast [enabled by default]
+    char enterFor = "Entering foreground-only mode (& is now ignored)\n";
+                    ^
+  main.c:361:19: warning: initialization makes integer from pointer without a cast [enabled by default]
+    char enterBack = "Exiting foreground-only mode\n";
+                     ^
+  main.c:365:3: warning: passing argument 2 of ‘write’ makes pointer from integer without a cast [enabled by default]
+     write(1, enterFor, 54);
+     ^
+  In file included from main.c:6:0:
+  /usr/include/unistd.h:366:16: note: expected ‘const void *’ but argument is of type ‘char’
+   extern ssize_t write (int __fd, const void *__buf, size_t __n) __wur;
+                  ^
+  main.c:370:3: warning: passing argument 2 of ‘write’ makes pointer from integer without a cast [enabled by default]
+     write(1, enterBack, 35);
+     ^
+  In file included from main.c:6:0:
+  /usr/include/unistd.h:366:16: note: expected ‘const void *’ but argument is of type ‘char’
+   extern ssize_t write (int __fd, const void *__buf, size_t __n) __wur;
+                  ^
+  main.c: In function ‘handleSIGINT’:
+  main.c:385:13: warning: initialization makes integer from pointer without a cast [enabled by default]
+    char msg = "terminated by signal 2\n";
+               ^
+  main.c:387:2: warning: passing argument 2 of ‘write’ makes pointer from integer without a cast [enabled by default]
+    write(STDOUT_FILENO, msg, size);
+    ^
+  In file included from main.c:6:0:
+  /usr/include/unistd.h:366:16: note: expected ‘const void *’ but argument is of type ‘char’
+   extern ssize_t write (int __fd, const void *__buf, size_t __n) __wur;
+                  ^
+  main.c: In function ‘backgroundWait’:
+  main.c:488:10: warning: unused variable ‘childPid’ [-Wunused-variable]
+      pid_t childPid = waitpid(*(pidArray[i]), &waitChild, WNOHANG);
+            ^
+  gcc -o ./Assignment3 build/main.o  
+  
+  Copying file '/nfs/stak/users/hansjose/vsprojects/Assignment3/Assignment3' to 'C:\Users\stalk\OneDrive\Desktop\CS 344\Assignment3\bin\x64\Debug\Assignment3'
